@@ -1,0 +1,8 @@
+# The exact environment the published results were produced with.
+# `pip install .` installs the package with the looser ranges in pyproject.toml.
+torch==2.3.0
+torch-geometric==2.6.1
+numpy==2.2.6
+pandas==2.3.2
+matplotlib==3.10.8
+tqdm==4.67.1
