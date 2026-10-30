@@ -1,14 +1,7 @@
-<div align="center">
-
 # STAGE
 
 **Graph-temporal attention for 3D drone localization<br>
 from the received-signal-strength reports of a sectorized ground-sensor network**
-
-![Python](https://img.shields.io/badge/python-3.9%E2%80%933.13-3776AB?logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.3%2B-EE4C2C?logo=pytorch&logoColor=white)
-![PyG](https://img.shields.io/badge/PyG-2.3%2B-3C2179)
-![Parameters](https://img.shields.io/badge/parameters-237k-informational)
 
 [Overview](#overview) •
 [Installation](#installation) •
@@ -17,7 +10,6 @@ from the received-signal-strength reports of a sectorized ground-sensor network*
 [Training](#training) •
 [Evaluation](#evaluation)
 
-</div>
 
 ---
 
