@@ -1,0 +1,21 @@
+// Source for architecture.svg. Rebuild with:
+//   dot -Tsvg figures/architecture.dot -o figures/architecture.svg
+digraph STAGE {
+    graph [rankdir=LR, bgcolor="white", pad=0.25, nodesep=0.5, ranksep=0.35,
+           fontname="Helvetica"];
+    node  [shape=box, style="rounded,filled", fillcolor="#ECECFF", color="#9370DB",
+           fontname="Helvetica", fontsize=11, margin="0.15,0.08", group=main];
+    edge  [color="#333333", arrowsize=0.7];
+
+    A [label=<Sensor reports<br/>window of 12 timesteps<br/>N sensors × 33 features>];
+    B [label=<Input projection<br/>Linear 33→64>];
+    C [label=<Spatial graph attention<br/>2 × GATv2 (4 heads)<br/>edges = sensor distances<br/><i>every timestep</i>>];
+    D [label=<Temporal self-attention<br/>2 × MHSA + FFN (4 heads)<br/><i>every sensor</i>>];
+    E [label=<Sensor embeddings<br/>N × 64<br/>(last timestep)>];
+    F [label=<Cross-attention decoder<br/>1 learned query<br/>2 transformer decoder layers>];
+    G [label=<(x, y, z)<br/>meters>];
+    H [group=aux, label=<θ-sector power<br/>reconstruction>];
+
+    A -> B -> C -> D -> E -> F -> G;
+    E -> H [style=dashed, label=<<font point-size="10">training only</font>>];
+}

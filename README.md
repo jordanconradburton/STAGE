@@ -24,16 +24,9 @@ the power it receives from a drone's transmitter in each of its antenna
 sectors. STAGE turns a short window of these reports into the drone's 3D
 position.
 
-```mermaid
-flowchart LR
-    A["Sensor reports<br/>window of 12 timesteps<br/>N sensors × 33 features"] --> B["Input projection<br/>Linear 33→64"]
-    B --> C["Spatial graph attention<br/>2 × GATv2 (4 heads)<br/>edges = sensor distances<br/><i>every timestep</i>"]
-    C --> D["Temporal self-attention<br/>2 × MHSA + FFN (4 heads)<br/><i>every sensor</i>"]
-    D --> E["Sensor embeddings<br/>N × 64<br/>(last timestep)"]
-    E --> F["Cross-attention decoder<br/>1 learned query<br/>2 transformer decoder layers"]
-    F --> G["(x, y, z)<br/>meters"]
-    E -. training only .-> H["θ-sector power<br/>reconstruction"]
-```
+<p align="center">
+  <img src="figures/architecture.svg" alt="STAGE architecture" width="100%">
+</p>
 
 Each timestep is a graph whose nodes are the sensors and whose edges carry
 inter-sensor distances. GATv2 layers mix information across sensors at
